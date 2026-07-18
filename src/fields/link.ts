@@ -83,6 +83,7 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
       type: 'text',
       admin: {
         condition: (_, siblingData) => siblingData?.type === 'custom',
+        description: 'Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).',
       },
       label: 'URL personalizada',
       required: true,

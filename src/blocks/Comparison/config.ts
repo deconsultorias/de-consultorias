@@ -53,6 +53,9 @@ export const ComparisonBlock: Block = {
         plural: 'Filas',
         singular: 'Fila',
       },
+      admin: {
+        description: 'Hasta 6 filas.',
+      },
       fields: [
         {
           name: 'traditional',

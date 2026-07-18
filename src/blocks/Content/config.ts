@@ -14,6 +14,10 @@ const columnFields: Field[] = [
     name: 'size',
     type: 'select',
     label: 'Ancho de columna',
+    admin: {
+      description:
+        'Las columnas de una misma fila se acomodan una al lado de otra hasta completar el ancho total (ej: dos columnas de "Mitad" ocupan una fila completa).',
+    },
     defaultValue: 'oneThird',
     options: [
       {

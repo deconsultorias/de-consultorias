@@ -147,6 +147,7 @@ export const Posts: CollectionConfig<'posts'> = {
               label: 'Artículos relacionados',
               admin: {
                 position: 'sidebar',
+                description: 'Opcional. Se muestran al final de este artículo como sugerencias.',
               },
               filterOptions: ({ id }) => {
                 return {
@@ -227,6 +228,7 @@ export const Posts: CollectionConfig<'posts'> = {
       label: 'Autores',
       admin: {
         position: 'sidebar',
+        description: 'Usuarios del admin que aparecen como autores de este artículo.',
       },
       hasMany: true,
       relationTo: 'users',

@@ -21,16 +21,16 @@ const BeforeDashboard: React.FC = () => {
         <summary>🏠 Editar la página de Inicio</summary>
         <div className={`${baseClass}__content`}>
           <p>
-            Ve a <b>Pages → Home</b>. La página está armada con &ldquo;bloques&rdquo; apilados (el encabezado,
-            la grilla de problemas, la metodología, etc.). Es posible:
+            Ve a <b>Pages → Home</b>. La página está armada con &ldquo;bloques&rdquo; apilados (el
+            encabezado, la grilla de problemas, la metodología, etc.). Es posible:
           </p>
           <ul>
             <li>
               <b>Reordenarlos:</b> arrastra cada bloque desde el ícono de puntos a la izquierda.
             </li>
             <li>
-              <b>Agregar uno nuevo:</b> con el botón <b>&ldquo;Add Block&rdquo;</b> al final de la lista, elige
-              el tipo y completa sus campos.
+              <b>Agregar uno nuevo:</b> con el botón <b>&ldquo;Add Block&rdquo;</b> al final de la
+              lista, elige el tipo y completa sus campos.
             </li>
             <li>
               <b>Eliminar uno:</b> con el ícono de papelera en la esquina del bloque. Esto no se
@@ -49,8 +49,8 @@ const BeforeDashboard: React.FC = () => {
         <div className={`${baseClass}__content`}>
           <p>
             Colección <b>Services</b>. Cada intervención tiene un título, un resumen corto, un
-            &ldquo;pilar&rdquo; (Cultura Preventiva / Liderazgo Adaptativo / Aprendizaje Organizacional), una
-            foto de portada y el contenido de la página.
+            &ldquo;pilar&rdquo; (Cultura Preventiva / Liderazgo Adaptativo / Aprendizaje
+            Organizacional), una foto de portada y el contenido de la página.
           </p>
           <ul>
             <li>
@@ -70,8 +70,8 @@ const BeforeDashboard: React.FC = () => {
         <summary>📝 Experiencias y Artículos (Posts)</summary>
         <div className={`${baseClass}__content`}>
           <p>
-            Colección <b>Posts</b>. Son las tarjetas que aparecen en &ldquo;Ideas que compartimos&rdquo; y en la
-            sección Ideas del menú.
+            Colección <b>Posts</b>. Son las tarjetas que aparecen en &ldquo;Ideas que
+            compartimos&rdquo; y en la sección Ideas del menú.
           </p>
           <ul>
             <li>
@@ -108,13 +108,15 @@ const BeforeDashboard: React.FC = () => {
           </p>
           <ul>
             <li>
-              <b>El &ldquo;texto alternativo&rdquo; (alt) es obligatorio.</b> Debe describir brevemente qué se
-              ve en la foto — sirve para accesibilidad y para que Google entienda el contenido.
-              Ejemplo: &ldquo;Equipo trabajando en una sesión de cultura preventiva&rdquo;.
+              <b>El &ldquo;texto alternativo&rdquo; (alt) es obligatorio.</b> Debe describir
+              brevemente qué se ve en la foto — sirve para accesibilidad y para que Google entienda
+              el contenido. Ejemplo: &ldquo;Equipo trabajando en una sesión de cultura
+              preventiva&rdquo;.
             </li>
             <li>
-              En la ficha de cada imagen, la sección <b>&ldquo;Dónde se usa&rdquo;</b> muestra en qué páginas,
-              servicios o artículos está esa foto — útil antes de borrarla o reemplazarla.
+              En la ficha de cada imagen, la sección <b>&ldquo;Dónde se usa&rdquo;</b> muestra en
+              qué páginas, servicios o artículos está esa foto — útil antes de borrarla o
+              reemplazarla.
             </li>
             <li>
               Para reemplazar una foto sin cambiar el diseño, se debe subir la nueva en el campo de
@@ -137,8 +139,8 @@ const BeforeDashboard: React.FC = () => {
               queda vacío.
             </li>
             <li>
-              Para agregar una red social nueva, usar &ldquo;Add Row&rdquo; en Redes Sociales, elegir la
-              plataforma y pegar el enlace completo (con https://).
+              Para agregar una red social nueva, usar &ldquo;Add Row&rdquo; en Redes Sociales,
+              elegir la plataforma y pegar el enlace completo (con https://).
             </li>
           </ul>
         </div>

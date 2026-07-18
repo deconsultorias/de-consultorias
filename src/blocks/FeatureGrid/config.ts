@@ -53,6 +53,9 @@ export const FeatureGridBlock: Block = {
         plural: 'Conceptos',
         singular: 'Concepto',
       },
+      admin: {
+        description: 'Hasta 8 conceptos.',
+      },
       fields: [
         {
           name: 'image',

@@ -17,6 +17,9 @@ export const FormBlock: Block = {
       label: 'Formulario',
       relationTo: 'forms',
       required: true,
+      admin: {
+        description: 'Elegí un formulario de la sección "Formularios" del menú lateral.',
+      },
     },
     {
       name: 'enableIntro',

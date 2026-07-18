@@ -53,6 +53,7 @@ export const ServicesShowcase: Block = {
     {
       name: 'populateBy',
       type: 'select',
+      label: 'Mostrar',
       defaultValue: 'collection',
       options: [
         { label: 'Todos los servicios', value: 'collection' },

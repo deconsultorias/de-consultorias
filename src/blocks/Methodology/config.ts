@@ -44,6 +44,9 @@ export const MethodologyBlock: Block = {
         plural: 'Pasos',
         singular: 'Paso',
       },
+      admin: {
+        description: 'Hasta 6 pasos — es intencional, para que no se desarme la grilla.',
+      },
       fields: [
         {
           name: 'icon',

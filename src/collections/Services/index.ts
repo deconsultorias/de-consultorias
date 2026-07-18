@@ -66,6 +66,7 @@ export const Services: CollectionConfig<'services'> = {
       required: true,
       admin: {
         position: 'sidebar',
+        description: 'Elige el pilar que mejor describe esta intervención.',
       },
       options: [
         { label: 'Cultura Preventiva', value: 'cultura-preventiva' },
@@ -89,6 +90,9 @@ export const Services: CollectionConfig<'services'> = {
       label: 'Foto de portada',
       relationTo: 'media',
       required: true,
+      admin: {
+        description: 'Se recorta en horizontal y vertical según dónde aparezca. Subí una foto de al menos 1200px de ancho para que no se vea pixelada.',
+      },
     },
     {
       name: 'summary',

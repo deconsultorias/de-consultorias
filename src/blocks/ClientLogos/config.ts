@@ -24,6 +24,9 @@ export const ClientLogosBlock: Block = {
         plural: 'Clientes',
         singular: 'Cliente',
       },
+      admin: {
+        description: 'Hasta 24 clientes.',
+      },
       fields: [
         {
           name: 'name',

@@ -62,6 +62,7 @@ export const Archive: Block = {
       type: 'relationship',
       admin: {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
+        description: 'Opcional. Si lo dejás vacío, se muestran artículos de todas las categorías.',
       },
       hasMany: true,
       label: 'Categorías a mostrar',
