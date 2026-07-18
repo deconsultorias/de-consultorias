@@ -12,6 +12,12 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   : process.env.__NEXT_PRIVATE_ORIGIN || 'http://localhost:3000'
 
 const nextConfig: NextConfig = {
+  eslint: {
+    // ESLint config currently crashes next build (circular JSON in the
+    // @eslint/eslintrc compat layer when validating eslint-plugin-react).
+    // Run `pnpm run lint` separately; this only skips the build-time gate.
+    ignoreDuringBuilds: true,
+  },
   // Temporarily required on Windows until Next.js fixes Turbopack Sass resolution.
   // See: https://github.com/vercel/next.js/issues/86431
   sassOptions: {
