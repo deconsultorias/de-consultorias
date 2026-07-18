@@ -118,7 +118,8 @@ export const Footer: GlobalConfig = {
           label: 'Enlace',
           required: true,
           admin: {
-            description: 'Pegá el enlace completo, incluyendo https:// (ej: https://instagram.com/tu-cuenta).',
+            description:
+              'Pegá el enlace completo, incluyendo https:// (ej: https://instagram.com/tu-cuenta).',
           },
         },
       ],

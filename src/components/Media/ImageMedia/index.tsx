@@ -8,10 +8,7 @@ import React from 'react'
 
 import type { Props as MediaProps } from '../types'
 
-import { cssVariables } from '@/cssVariables'
 import { getMediaUrl } from '@/utilities/getMediaUrl'
-
-const { breakpoints } = cssVariables
 
 // Neutral 1x1 transparent pixel used as a placeholder while images load, so nothing
 // visually clashes with the actual content (a fixed photo blur looked wrong on logos).
@@ -78,12 +75,9 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined)
 
-  // NOTE: this is used by the browser to determine which image to download at different screen sizes
-  const sizes = sizeFromProps
-    ? sizeFromProps
-    : Object.entries(breakpoints)
-        .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
-        .join(', ')
+  // NOTE: this is used by the browser to determine which image to download at different screen sizes.
+  // Defaults to 100vw (image renders at up to the full viewport width) when no explicit size is given.
+  const sizes = sizeFromProps || '100vw'
 
   return (
     <picture className={cn(fill && 'absolute inset-0 block', pictureClassName)}>

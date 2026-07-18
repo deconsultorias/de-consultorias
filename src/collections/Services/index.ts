@@ -91,7 +91,8 @@ export const Services: CollectionConfig<'services'> = {
       relationTo: 'media',
       required: true,
       admin: {
-        description: 'Se recorta en horizontal y vertical según dónde aparezca. Subí una foto de al menos 1200px de ancho para que no se vea pixelada.',
+        description:
+          'Se recorta en horizontal y vertical según dónde aparezca. Subí una foto de al menos 1200px de ancho para que no se vea pixelada.',
       },
     },
     {
