@@ -21,7 +21,7 @@ const BeforeDashboard: React.FC = () => {
         <summary>🏠 Editar la página de Inicio</summary>
         <div className={`${baseClass}__content`}>
           <p>
-            Ve a <b>Pages → Home</b>. La página está armada con "bloques" apilados (el encabezado,
+            Ve a <b>Pages → Home</b>. La página está armada con &ldquo;bloques&rdquo; apilados (el encabezado,
             la grilla de problemas, la metodología, etc.). Es posible:
           </p>
           <ul>
@@ -29,7 +29,7 @@ const BeforeDashboard: React.FC = () => {
               <b>Reordenarlos:</b> arrastra cada bloque desde el ícono de puntos a la izquierda.
             </li>
             <li>
-              <b>Agregar uno nuevo:</b> con el botón <b>"Add Block"</b> al final de la lista, elige
+              <b>Agregar uno nuevo:</b> con el botón <b>&ldquo;Add Block&rdquo;</b> al final de la lista, elige
               el tipo y completa sus campos.
             </li>
             <li>
@@ -49,7 +49,7 @@ const BeforeDashboard: React.FC = () => {
         <div className={`${baseClass}__content`}>
           <p>
             Colección <b>Services</b>. Cada intervención tiene un título, un resumen corto, un
-            "pilar" (Cultura Preventiva / Liderazgo Adaptativo / Aprendizaje Organizacional), una
+            &ldquo;pilar&rdquo; (Cultura Preventiva / Liderazgo Adaptativo / Aprendizaje Organizacional), una
             foto de portada y el contenido de la página.
           </p>
           <ul>
@@ -70,7 +70,7 @@ const BeforeDashboard: React.FC = () => {
         <summary>📝 Experiencias y Artículos (Posts)</summary>
         <div className={`${baseClass}__content`}>
           <p>
-            Colección <b>Posts</b>. Son las tarjetas que aparecen en "Ideas que compartimos" y en la
+            Colección <b>Posts</b>. Son las tarjetas que aparecen en &ldquo;Ideas que compartimos&rdquo; y en la
             sección Ideas del menú.
           </p>
           <ul>
@@ -108,12 +108,12 @@ const BeforeDashboard: React.FC = () => {
           </p>
           <ul>
             <li>
-              <b>El "texto alternativo" (alt) es obligatorio.</b> Debe describir brevemente qué se
+              <b>El &ldquo;texto alternativo&rdquo; (alt) es obligatorio.</b> Debe describir brevemente qué se
               ve en la foto — sirve para accesibilidad y para que Google entienda el contenido.
-              Ejemplo: "Equipo trabajando en una sesión de cultura preventiva".
+              Ejemplo: &ldquo;Equipo trabajando en una sesión de cultura preventiva&rdquo;.
             </li>
             <li>
-              En la ficha de cada imagen, la sección <b>"Dónde se usa"</b> muestra en qué páginas,
+              En la ficha de cada imagen, la sección <b>&ldquo;Dónde se usa&rdquo;</b> muestra en qué páginas,
               servicios o artículos está esa foto — útil antes de borrarla o reemplazarla.
             </li>
             <li>
@@ -137,7 +137,7 @@ const BeforeDashboard: React.FC = () => {
               queda vacío.
             </li>
             <li>
-              Para agregar una red social nueva, usar "Add Row" en Redes Sociales, elegir la
+              Para agregar una red social nueva, usar &ldquo;Add Row&rdquo; en Redes Sociales, elegir la
               plataforma y pegar el enlace completo (con https://).
             </li>
           </ul>
