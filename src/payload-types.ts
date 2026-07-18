@@ -206,6 +206,9 @@ export interface Page {
                   relationTo: 'services';
                   value: number | Service;
                 } | null);
+            /**
+             * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+             */
             url?: string | null;
             label: string;
             /**
@@ -286,6 +289,9 @@ export interface Post {
    * Nombre del cliente (solo para experiencias con clientes).
    */
   client?: string | null;
+  /**
+   * Opcional. Se muestran al final de este artículo como sugerencias.
+   */
   relatedPosts?: (number | Post)[] | null;
   categories?: (number | Category)[] | null;
   meta?: {
@@ -297,6 +303,9 @@ export interface Post {
     description?: string | null;
   };
   publishedAt?: string | null;
+  /**
+   * Usuarios del admin que aparecen como autores de este artículo.
+   */
   authors?: (number | User)[] | null;
   populatedAuthors?:
     | {
@@ -435,11 +444,17 @@ export interface Media {
 export interface Service {
   id: number;
   title: string;
+  /**
+   * Elige el pilar que mejor describe esta intervención.
+   */
   area: 'cultura-preventiva' | 'liderazgo-adaptativo' | 'aprendizaje-organizacional';
   /**
    * Orden en el que aparece dentro del listado de servicios (menor = primero).
    */
   order?: number | null;
+  /**
+   * Se recorta en horizontal y vertical según dónde aparezca. Subí una foto de al menos 1200px de ancho para que no se vea pixelada.
+   */
   coverImage: number | Media;
   /**
    * Descripción corta que se muestra en la tarjeta del listado de servicios.
@@ -591,6 +606,9 @@ export interface CallToActionBlock {
                 relationTo: 'services';
                 value: number | Service;
               } | null);
+          /**
+           * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+           */
           url?: string | null;
           label: string;
           /**
@@ -616,6 +634,9 @@ export interface ContentBlock {
   eyebrow?: string | null;
   columns?:
     | {
+        /**
+         * Las columnas de una misma fila se acomodan una al lado de otra hasta completar el ancho total (ej: dos columnas de "Mitad" ocupan una fila completa).
+         */
         size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
         richText?: {
           root: {
@@ -649,6 +670,9 @@ export interface ContentBlock {
                 relationTo: 'services';
                 value: number | Service;
               } | null);
+          /**
+           * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+           */
           url?: string | null;
           label: string;
           /**
@@ -695,6 +719,9 @@ export interface ArchiveBlock {
   } | null;
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: 'posts' | null;
+  /**
+   * Opcional. Si lo dejás vacío, se muestran artículos de todas las categorías.
+   */
   categories?: (number | Category)[] | null;
   limit?: number | null;
   selectedDocs?:
@@ -712,6 +739,9 @@ export interface ArchiveBlock {
  * via the `definition` "FormBlock".
  */
 export interface FormBlock {
+  /**
+   * Elegí un formulario de la sección "Formularios" del menú lateral.
+   */
   form: number | Form;
   enableIntro?: boolean | null;
   introContent?: {
@@ -975,6 +1005,9 @@ export interface ServicesShowcaseBlock {
           relationTo: 'services';
           value: number | Service;
         } | null);
+    /**
+     * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+     */
     url?: string | null;
     label: string;
     /**
@@ -998,6 +1031,9 @@ export interface MethodologyBlock {
    */
   titleHighlight?: string | null;
   intro?: string | null;
+  /**
+   * Hasta 6 pasos — es intencional, para que no se desarme la grilla.
+   */
   steps?:
     | {
         icon?: ('search' | 'layers' | 'users' | 'hard-hat' | 'repeat' | 'shield-check' | 'sparkles') | null;
@@ -1025,6 +1061,9 @@ export interface MethodologyBlock {
           relationTo: 'services';
           value: number | Service;
         } | null);
+    /**
+     * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+     */
     url?: string | null;
     label: string;
     /**
@@ -1068,6 +1107,9 @@ export interface FeatureGridBlock {
    */
   titleHighlight?: string | null;
   intro?: string | null;
+  /**
+   * Hasta 8 conceptos.
+   */
   items?:
     | {
         /**
@@ -1113,6 +1155,9 @@ export interface FeatureGridBlock {
           relationTo: 'services';
           value: number | Service;
         } | null);
+    /**
+     * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+     */
     url?: string | null;
     label: string;
     /**
@@ -1167,6 +1212,9 @@ export interface MediaTextBlock {
           relationTo: 'services';
           value: number | Service;
         } | null);
+    /**
+     * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+     */
     url?: string | null;
     label: string;
     /**
@@ -1184,6 +1232,9 @@ export interface MediaTextBlock {
  */
 export interface ClientLogosBlock {
   title?: string | null;
+  /**
+   * Hasta 24 clientes.
+   */
   clients?:
     | {
         name: string;
@@ -1229,6 +1280,9 @@ export interface FlagshipBannerBlock {
           relationTo: 'services';
           value: number | Service;
         } | null);
+    /**
+     * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+     */
     url?: string | null;
     label: string;
     /**
@@ -1251,6 +1305,9 @@ export interface ComparisonBlock {
   description?: string | null;
   traditionalLabel?: string | null;
   approachLabel?: string | null;
+  /**
+   * Hasta 6 filas.
+   */
   rows?:
     | {
         traditional: string;
@@ -2449,6 +2506,9 @@ export interface Header {
                 relationTo: 'services';
                 value: number | Service;
               } | null);
+          /**
+           * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+           */
           url?: string | null;
           label: string;
         };
@@ -2491,6 +2551,9 @@ export interface Footer {
                 relationTo: 'services';
                 value: number | Service;
               } | null);
+          /**
+           * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+           */
           url?: string | null;
           label: string;
         };
@@ -2518,6 +2581,9 @@ export interface Footer {
                 relationTo: 'services';
                 value: number | Service;
               } | null);
+          /**
+           * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+           */
           url?: string | null;
           label: string;
         };
@@ -2544,6 +2610,9 @@ export interface Footer {
           relationTo: 'services';
           value: number | Service;
         } | null);
+    /**
+     * Pegá el enlace completo, incluyendo https:// (ej: https://ejemplo.com).
+     */
     url?: string | null;
     label: string;
     /**
@@ -2556,6 +2625,9 @@ export interface Footer {
   socialLinks?:
     | {
         platform: 'linkedin' | 'instagram' | 'youtube' | 'facebook';
+        /**
+         * Pegá el enlace completo, incluyendo https:// (ej: https://instagram.com/tu-cuenta).
+         */
         url: string;
         id?: string | null;
       }[]
