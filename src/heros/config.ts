@@ -5,6 +5,7 @@ import {
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
+  TextStateFeature,
 } from '@payloadcms/richtext-lexical'
 
 import { linkGroup } from '@/fields/linkGroup'
@@ -46,6 +47,16 @@ export const hero: Field = {
           return [
             ...rootFeatures,
             HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+            TextStateFeature({
+              state: {
+                color: {
+                  accent: {
+                    label: 'Amarillo (Acento)',
+                    css: { color: 'var(--accent)' },
+                  },
+                },
+              },
+            }),
             FixedToolbarFeature(),
             InlineToolbarFeature(),
           ]

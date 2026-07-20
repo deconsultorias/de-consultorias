@@ -35,9 +35,25 @@ const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
   return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
 }
 
+/** Color options registered via TextStateFeature (see src/heros/config.ts). Keep in sync with its `state.color`. */
+const TEXT_STATE_COLORS: Record<string, React.CSSProperties> = {
+  accent: { color: 'var(--accent)' },
+}
+
 const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
   ...defaultConverters,
   ...LinkJSXConverter({ internalDocToHref }),
+  text: (args) => {
+    const rendered =
+      typeof defaultConverters.text === 'function' ? defaultConverters.text(args) : args.node.text
+    const { node } = args
+    const nodeState = (node as { $?: Record<string, string> })['$']
+    const colorStyle = nodeState?.color ? TEXT_STATE_COLORS[nodeState.color] : undefined
+    if (colorStyle) {
+      return <span style={colorStyle}>{rendered}</span>
+    }
+    return rendered
+  },
   blocks: {
     banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
     mediaBlock: ({ node }) => (

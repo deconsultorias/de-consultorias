@@ -10,11 +10,13 @@ import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
+import { ServiceAreas } from './collections/ServiceAreas'
 import { Services } from './collections/Services'
 import { Users } from './collections/Users'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { PostsArchive } from './globals/PostsArchive/config'
+import { ServicesArchive } from './globals/ServicesArchive/config'
 import { Typography } from './globals/Typography/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
@@ -84,9 +86,9 @@ export default buildConfig({
     defaultFromName: 'DE Consultorías',
     apiKey: process.env.RESEND_API_KEY || '',
   }),
-  collections: [Pages, Posts, Services, Media, Categories, Users],
+  collections: [Pages, Posts, Services, ServiceAreas, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer, Typography, PostsArchive],
+  globals: [Header, Footer, Typography, PostsArchive, ServicesArchive],
   plugins,
   secret: process.env.PAYLOAD_SECRET,
   sharp,

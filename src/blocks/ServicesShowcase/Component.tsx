@@ -37,6 +37,7 @@ export const ServicesShowcaseBlock: React.FC<
       collection: 'services',
       depth: 1,
       limit,
+      overrideAccess: false,
       sort: 'order',
     })
 

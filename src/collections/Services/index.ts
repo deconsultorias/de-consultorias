@@ -28,12 +28,12 @@ export const Services: CollectionConfig<'services'> = {
   defaultPopulate: {
     title: true,
     slug: true,
-    area: true,
+    pilar: true,
     summary: true,
     coverImage: true,
   },
   admin: {
-    defaultColumns: ['title', 'area', 'updatedAt'],
+    defaultColumns: ['title', 'pilar', 'updatedAt'],
     useAsTitle: 'title',
     description:
       'Las intervenciones que se muestran en "Servicios" y en la portada. Cada una necesita una foto de portada.',
@@ -58,21 +58,39 @@ export const Services: CollectionConfig<'services'> = {
       type: 'text',
       label: 'Título',
       required: true,
+      admin: {
+        description:
+          'Nombre corto del servicio (ej. "Liderazgo Adaptativo"). Se usa para generar la URL automáticamente, evita caracteres especiales.',
+      },
     },
     {
+      // Campo legado, reemplazado por `pilar`. Se mantiene sin uso visible para no perder
+      // los datos existentes hasta completar la migración; no se elimina de la config para
+      // evitar que Payload interprete el cambio como un rename de columna ambiguo.
       name: 'area',
       type: 'select',
-      label: 'Pilar de intervención',
-      required: true,
+      label: 'Pilar de intervención (legado)',
+      required: false,
       admin: {
-        position: 'sidebar',
-        description: 'Elige el pilar que mejor describe esta intervención.',
+        hidden: true,
       },
       options: [
         { label: 'Cultura Preventiva', value: 'cultura-preventiva' },
         { label: 'Liderazgo Adaptativo', value: 'liderazgo-adaptativo' },
         { label: 'Aprendizaje Organizacional', value: 'aprendizaje-organizacional' },
       ],
+    },
+    {
+      name: 'pilar',
+      type: 'relationship',
+      relationTo: 'service-areas',
+      label: 'Pilar de intervención',
+      required: true,
+      admin: {
+        position: 'sidebar',
+        description:
+          'Elige el pilar que mejor describe esta intervención. Si no existe el que necesitas, crea uno nuevo en "Pilares de Intervención" y vuelve a esta pantalla.',
+      },
     },
     {
       name: 'order',

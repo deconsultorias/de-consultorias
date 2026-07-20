@@ -70,6 +70,7 @@ export interface Config {
     pages: Page;
     posts: Post;
     services: Service;
+    'service-areas': ServiceArea;
     media: Media;
     categories: Category;
     users: User;
@@ -98,6 +99,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
+    'service-areas': ServiceAreasSelect<false> | ServiceAreasSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -121,12 +123,14 @@ export interface Config {
     footer: Footer;
     typography: Typography;
     postsArchive: PostsArchive;
+    servicesArchive: ServicesArchive;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     typography: TypographySelect<false> | TypographySelect<true>;
     postsArchive: PostsArchiveSelect<false> | PostsArchiveSelect<true>;
+    servicesArchive: ServicesArchiveSelect<false> | ServicesArchiveSelect<true>;
   };
   locale: null;
   widgets: {
@@ -443,11 +447,15 @@ export interface Media {
  */
 export interface Service {
   id: number;
-  title: string;
   /**
-   * Elige el pilar que mejor describe esta intervención.
+   * Nombre corto del servicio (ej. "Liderazgo Adaptativo"). Se usa para generar la URL automáticamente, evita caracteres especiales.
    */
-  area: 'cultura-preventiva' | 'liderazgo-adaptativo' | 'aprendizaje-organizacional';
+  title: string;
+  area?: ('cultura-preventiva' | 'liderazgo-adaptativo' | 'aprendizaje-organizacional') | null;
+  /**
+   * Elige el pilar que mejor describe esta intervención. Si no existe el que necesitas, crea uno nuevo en "Pilares de Intervención" y vuelve a esta pantalla.
+   */
+  pilar: number | ServiceArea;
   /**
    * Orden en el que aparece dentro del listado de servicios (menor = primero).
    */
@@ -483,6 +491,26 @@ export interface Service {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * Los pilares bajo los que se agrupan los servicios (ej. "Cultura Preventiva"). Agrega uno nuevo aquí si el servicio que quieres crear no encaja en los pilares existentes.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "service-areas".
+ */
+export interface ServiceArea {
+  id: number;
+  /**
+   * Ej. "Cultura Preventiva", "Liderazgo Adaptativo".
+   */
+  title: string;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1562,6 +1590,10 @@ export interface PayloadLockedDocument {
         value: number | Service;
       } | null)
     | ({
+        relationTo: 'service-areas';
+        value: number | ServiceArea;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
       } | null)
@@ -2052,6 +2084,7 @@ export interface PostsSelect<T extends boolean = true> {
 export interface ServicesSelect<T extends boolean = true> {
   title?: T;
   area?: T;
+  pilar?: T;
   order?: T;
   coverImage?: T;
   summary?: T;
@@ -2061,6 +2094,17 @@ export interface ServicesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "service-areas_select".
+ */
+export interface ServiceAreasSelect<T extends boolean = true> {
+  title?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2675,6 +2719,22 @@ export interface PostsArchive {
   createdAt?: string | null;
 }
 /**
+ * Título e introducción de la página que lista todos los servicios (/servicios).
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "servicesArchive".
+ */
+export interface ServicesArchive {
+  id: number;
+  heading: string;
+  /**
+   * Opcional. Texto corto debajo del título.
+   */
+  intro?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
@@ -2772,6 +2832,17 @@ export interface TypographySelect<T extends boolean = true> {
  * via the `definition` "postsArchive_select".
  */
 export interface PostsArchiveSelect<T extends boolean = true> {
+  heading?: T;
+  intro?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "servicesArchive_select".
+ */
+export interface ServicesArchiveSelect<T extends boolean = true> {
   heading?: T;
   intro?: T;
   updatedAt?: T;

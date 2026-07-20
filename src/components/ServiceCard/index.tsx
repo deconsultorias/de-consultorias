@@ -9,7 +9,7 @@ import type { Service } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 
-export type CardServiceData = Pick<Service, 'slug' | 'title' | 'summary' | 'area' | 'coverImage'>
+export type CardServiceData = Pick<Service, 'slug' | 'title' | 'summary' | 'pilar' | 'coverImage'>
 
 export const ServiceCard: React.FC<{
   className?: string
