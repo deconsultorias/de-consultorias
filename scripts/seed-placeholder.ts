@@ -164,12 +164,27 @@ async function run() {
     categories[cat.slug] = doc.id as number
   }
 
+  payload.logger.info('Creando pilares de intervención...')
+
+  const pilaresData = [
+    { title: 'Cultura Preventiva', slug: 'cultura-preventiva' },
+    { title: 'Liderazgo Adaptativo', slug: 'liderazgo-adaptativo' },
+    { title: 'Aprendizaje Organizacional', slug: 'aprendizaje-organizacional' },
+  ]
+
+  const pilares: Record<string, number> = {}
+  for (const pilar of pilaresData) {
+    const doc = await payload.create({ collection: 'service-areas', data: pilar })
+    pilares[pilar.slug] = doc.id as number
+  }
+
   payload.logger.info('Creando servicios (intervenciones)...')
 
   const services = [
     {
       title: 'Intervención en Cultura Preventiva',
       area: 'cultura-preventiva' as const,
+      pilar: pilares['cultura-preventiva'],
       order: 1,
       coverImage: mediaCulturaPreventiva.id,
       summary:
@@ -189,6 +204,7 @@ async function run() {
     {
       title: 'Intervención en Liderazgo Adaptativo',
       area: 'liderazgo-adaptativo' as const,
+      pilar: pilares['liderazgo-adaptativo'],
       order: 2,
       coverImage: mediaLiderazgo.id,
       summary:
@@ -208,6 +224,7 @@ async function run() {
     {
       title: 'Intervención en Aprendizaje Organizacional',
       area: 'aprendizaje-organizacional' as const,
+      pilar: pilares['aprendizaje-organizacional'],
       order: 3,
       coverImage: mediaAprendizaje.id,
       summary:

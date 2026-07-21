@@ -37,7 +37,7 @@ async function run() {
       existing.docs[0] ??
       (await payload.create({
         collection: 'service-areas',
-        data: { title },
+        data: { title, slug: legacyValue },
         context: { disableRevalidate: true },
       }))
 
